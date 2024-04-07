@@ -13,3 +13,10 @@ Route::get('mostrar-usuarios/{usuario}',[UsuarioController::class,'show'])->name
 Route::get('editar-usuarios/{usuario}',[UsuarioController::class,'edit'])->name('editar');
 Route::put('actualiza-usuarios/{usuario}',[UsuarioController::class,'update'])->name('actualiza');
 Route::delete('destruir-usuarios/{usuario}',[UsuarioController::class,'destroy'])->name('destruir');
+
+
+
+
+Route::post('validar-usuarios', [UsuarioController::class, 'validate'])->name('valida');
+Route::get('usuario-incio/{usuario}',[UsuarioController::class, 'inicio'])->name('login');
+
