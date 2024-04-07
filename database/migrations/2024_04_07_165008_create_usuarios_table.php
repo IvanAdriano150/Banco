@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('codigo_postal')->nullable()->default(null);
             $table->string('direccion')->nullable()->default(null);
             $table->string('contrasena')->nullable()->default(null);
+            $table->date('fecha_nacimiento');
             $table->enum('rol',['Usuario','Admin']) -> default('Usuario');
 
             $table->timestamps();

@@ -16,6 +16,6 @@
             <input type="submit" value="Enviar">
     </form>
     <hr><hr>
-    <a href="/formulario"><u> CREAR UNA SESION </u></a>
+    <a href="crear-usuarios"><u> CREAR UNA SESION </u></a>
 </body>
 </html>
