@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StoreUsuarioRequest;
 use App\Http\Requests\UpdateUsuarioRequest;
 use App\Models\Usuario;
+use Illuminate\Support\Facades\DB;
 
 class UsuarioController extends Controller
 {
@@ -101,5 +102,35 @@ class UsuarioController extends Controller
         echo "borrar a $usuario->nombres , $usuario->primer_apellido, $usuario->segundo_apellido";
         $usuario->delete();
         return redirect(route('lista'));
+    }
+
+    public function validate(Request $request)
+    {      
+        $contrasenaIngresada = $request->input('contrasena'); 
+        $values = DB::select('SELECT * FROM usuarios WHERE ine_ife = ?', [$request->input('ine_ife')]);
+
+        if (!empty($values)) {
+            $usuario = new Usuario(); 
+            $usuario->fill((array) $values[0]); 
+
+            if ($usuario->contrasena == $contrasenaIngresada) {
+                if ($usuario->rol == 'Usuario') {
+                    return view('usuario-home',compact('usuario'));
+                } else {
+                    return redirect(route('lista'));
+                }
+            } else {
+                
+                return ( 'Contraseña incorrecta');  // PONER MENSAJE DE CONTRASENA INCORRECTA
+            }
+        } else {
+           
+            return ( 'Usuario no encontrado' );  // PONER MENSAJE DE USUARIO NO ENCONTRADO
+        }
+    }
+
+    public function inicio(Usuario $usuario){
+        return view('usuario-home',compact('usuario'));
+
     }
 }

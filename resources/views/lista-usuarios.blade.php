@@ -8,17 +8,19 @@
 <body>
 
 
-<table border="1">
+<table border="10">
   <thead>
-    <th>#</th>
+    <th>INE</th>
     <th>Nombre</th>
+    <th>ROL</th>
     <th>Acciones</th>
   </thead>
   <tbody>
     @forelse ($usuarios as $elemento)
         <tr>
-          <td> {{$loop->iteration}} </td>
+          <td> {{$elemento->ine_ife}} </td>
           <td> {{$elemento->nombres}}, {{$elemento->primer_apellido}}, {{$elemento->segundo_apellido}}</td>
+          <td> {{$elemento->rol}}</td>
           <td> 
             <a href="{{route('mostrar',$elemento->id)}}">mostrar</a>  
             <a href="{{route('editar',$elemento->id)}}">editar</a>  

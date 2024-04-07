@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>CREACION DE CUENTA</title>
+    <title>EDITAR USUARIO</title>
 </head>
 <body>
     <h3>Creacion de Usuario</h3>
-    <form action="" method="">
-
+    <form action="{{route('actualiza',$usuario->id)}}" method="POST" enctype="application/x-www-form-urlencoded">
+     
             <label for= "INE/IFE "> INE o IFE </label>
             <input type="text" id="ine_ife" name="ine_ife"  value="{{$usuario->ine_ife}}" required> <br><br>
 
@@ -35,15 +35,24 @@
             <input type="text" id="nacionalidad" name="nacionalidad" value="{{$usuario->nacionalidad}}" required> <br><br>
 
             <label>Sexo</label>
-            <select id="opciones" name="SEXO">
-                <option value="hombre">Mujer</option>
-                <option value="mujer">Hombre</option>
-                <option value="{{$usuario->genero}}" selected>ACTUALMENTE</option>
+            <select id="opciones" name="sexo">
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
             </select><br><br>
+
+            <select id="opciones" name="rol">
+                <option value="Admin">Admin</option>
+                <option value="Usuario">Usuario</option>
+            </select>
+            <label>  ROL ACTUAL -----> </label>
+            <input type="text" value="{{$usuario->rol}}" readonly>
+            <br><br>
 
             <label for= "contraseña"> Contraseña </label>
             <input type="password" id="contrasena" name="contrasena"  value="{{$usuario->contrasena}}" required> <br><br>
             <hr>
+            @csrf
+            @method('PUT')
             <input type="submit" value="Enviar">
 
     </form>
