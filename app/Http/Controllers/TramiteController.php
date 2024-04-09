@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Models\Tramite;
 use App\Http\Requests\StoreTramiteRequest;
 use App\Http\Requests\UpdateTramiteRequest;
+use Illuminate\Support\Facades\DB;
 
 class TramiteController extends Controller
 {
@@ -30,6 +32,14 @@ class TramiteController extends Controller
     public function store(StoreTramiteRequest $request)
     {
         //
+        $valores = $request->all();
+        dump($valores);
+        $nuevo = new Tramite();
+        $nuevo->usuario_ine_ife = $valores['ine'];
+        $nuevo->estado = 'Pendiente';
+        $nuevo->razon_cuenta = $valores['tramite'];
+        $nuevo->save();
+        return redirect(route('login', ['usuario' => $valores['loginId']]));
     }
 
     /**

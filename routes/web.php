@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\TramiteController;
 
 Route::get('/', function () {
     return view('home');
@@ -14,9 +15,9 @@ Route::get('editar-usuarios/{usuario}',[UsuarioController::class,'edit'])->name(
 Route::put('actualiza-usuarios/{usuario}',[UsuarioController::class,'update'])->name('actualiza');
 Route::delete('destruir-usuarios/{usuario}',[UsuarioController::class,'destroy'])->name('destruir');
 
-
+Route::post('agregar-tramite',[TramiteController::class,'store'])->name('tramite');
 
 
 Route::post('validar-usuarios', [UsuarioController::class, 'validate'])->name('valida');
-Route::get('usuario-incio/{usuario}',[UsuarioController::class, 'inicio'])->name('login');
+Route::get('usuario-inicio/{usuario}',[UsuarioController::class, 'inicio'])->name('login');
 
