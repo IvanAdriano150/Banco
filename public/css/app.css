@@ -1,0 +1,75 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #089cc9;
+}
+
+.container {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: left;
+    font-style: unset;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 20px;
+    border-width: 25px;
+    border-style: solid;
+    border-color: #7ec8e3;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.container logo {
+    max-width: 100px; /* Ajusta el ancho máximo de la imagen según sea necesario */
+    margin-right: 20px; /* Añade un margen a la derecha de la imagen */
+}
+
+.container h2 {
+    text-align: left; /* Alinea el texto a la derecha */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #0313ee;
+    border-radius: 20px;
+    box-sizing: border-box;
+    background-color: #9ed4db;
+    
+}
+
+input[type="submit"] {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    width: 100%;
+    padding: 8px;
+    background-image: linear-gradient(to right, #7ec8e3, #4ba0d9); /* Fondo degradado */
+    color: #000000;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+input[type="submit"]:hover {
+    background-image: linear-gradient(to right, #7ec8e3, #4ba0d9); /* Fondo degradado */
+}
+
+.final{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 5dx;
+}
